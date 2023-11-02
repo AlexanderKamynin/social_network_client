@@ -1,0 +1,74 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Мистер А звездочка",
+            "date": "2023-08-01",
+            "email": "stypeetojizn@mail.scype",
+            "avatar": "50.jpg",
+            "role": "Администратор",
+            "status": "Активный",
+            "friends": [2, 3, 4, 6, 7]
+        },
+        {
+            "id": 2,
+            "name": "Danilka Solomin",
+            "date": "2023-08-01",
+            "email": "yadanilka@danilka.com",
+            "avatar": "100.jpg",
+            "role": "Пользователь",
+            "status": "Активный",
+            "friends": [1, 3]
+        },
+        {
+            "id": 3,
+            "name": "Kostya kak tam Valentina",
+            "date": "2023-08-01",
+            "email": "siderblablabla@gmail.com",
+            "avatar": "200.jpg",
+            "role": "Пользователь",
+            "status": "Активный",
+            "friends": [1, 2]
+        },
+        {
+            "id": 4,
+            "name": "Kirieshka",
+            "date": "2023-08-01",
+            "email": "SROCHNO@decanat.com",
+            "avatar": "500.jpg",
+            "role": "Пользователь",
+            "status": "Активный",
+            "friends": [1]
+        },
+        {
+            "id": 5,
+            "name": "Ярик Коптелов",
+            "date": "2023-08-01",
+            "email": "tvoicrush@dopsa.matan",
+            "avatar": "1000.jpg",
+            "role": "Пользователь",
+            "status": "Заблокированный",
+            "friends": null
+        },
+        {
+            "id": 6,
+            "name": "Леночка Найденова",
+            "date": "2023-08-01",
+            "email": "lenanaidyonova123@mail.ru",
+            "avatar": "2000.jpg",
+            "role": "Администратор",
+            "status": "Активный",
+            "friends": [1, 7]
+        },
+        {
+            "id": 7,
+            "name": "Ваш Д.Павлов",
+            "date": "2023-08-01",
+            "email": "dapavlov@etu.ru",
+            "avatar": "5000.jpg",
+            "role": "Администратор",
+            "status": "Активный",
+            "friends": [1, 6]
+        }
+    ]
+}
