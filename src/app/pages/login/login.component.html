@@ -1,6 +1,6 @@
-<div>
-    <h1>Добро пожаловать</h1>
+<h1>Добро пожаловать</h1>
 
+<div>
     <input
         type="text"
         name="name"
@@ -9,17 +9,23 @@
     />
 
     <input
-    type="text"
-    name="email"
-    placeholder="Your email"
-    [(ngModel)]="email"
+        type="text"
+        name="email"
+        placeholder="Your email"
+        [(ngModel)]="email"
     />
 
     <input
-    type="password"
-    name="password"
-    placeholder="Your password"
-    [(ngModel)]="password"
+        type="password"
+        name="password"
+        placeholder="Your password"
+        [(ngModel)]="password"
     />
     
+    <button
+        type="submit"
+        (click)="login()"
+    >
+        Login
+    </button>
 </div>
