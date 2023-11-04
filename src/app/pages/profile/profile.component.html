@@ -1,0 +1,51 @@
+
+<div>
+    <div>
+        <img [src]="image_path">
+
+        <div>
+            <p>{{user.name}}</p>
+            <p>{{user.email}}</p>
+            <p>{{user.date}}</p>
+        </div>
+    </div>
+
+    <input 
+        type="file"
+        name="avatar"
+        (change)="on_selected_file($event)"
+    />
+
+    <button
+        (click)="upload_avatar()"
+    >Загрузить аватар</button>
+
+    <button
+        (click)="delete_avatar()"
+    >Удалить аватар</button>
+
+
+    <button>
+        Новости
+    </button>
+
+    <button>
+        Мессенджер
+    </button>
+
+    <button>
+        Мои посты
+    </button>
+
+    <button>
+        Друзья
+    </button>
+
+    <button>
+        Выйти
+    </button>
+
+    <button>
+        Администрирование
+    </button>
+</div>

@@ -27,7 +27,7 @@ export class AuthService {
           {
             this.isAuth = true;
             this.user = res.user;
-            //TODO: перейти на страницу профиля
+            this.router.navigate(['profile']);
           }
           else
           {

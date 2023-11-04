@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './router/app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
