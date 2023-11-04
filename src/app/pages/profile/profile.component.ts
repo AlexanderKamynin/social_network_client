@@ -21,10 +21,8 @@ export class ProfileComponent implements OnInit {
     this.image_path = this.UserService.backend + '/src/img/' + this.user.avatar;
   }
 
-
   on_selected_file(event: any) {
     this.selected_img = <File>event.target.files[0];
-    //console.log(this.selected_img);
   }
 
   upload_avatar() {

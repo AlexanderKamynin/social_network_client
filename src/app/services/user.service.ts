@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../interfaces/user';
 import { HttpClient } from '@angular/common/http';
-import { Route } from '@angular/router';
+import { Route, Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import { tap, Observable } from 'rxjs';
+import { tap, Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,14 @@ export class UserService {
   private current_user: IUser;
   public backend = 'https://localhost:3000';
 
-  constructor(private http: HttpClient, private AuthService: AuthService){
+  constructor(private http: HttpClient, private AuthService: AuthService, private router: Router){
     this.get_all_users();
     this.current_user = this.AuthService.user;
   };
+
+  go_to_page(page: string){
+    this.router.navigate([page]);
+  }
 
   get_all_users(): IUser[] {
     this.http.get(this.backend + '/get_users').subscribe((res: any) => {
@@ -29,36 +33,45 @@ export class UserService {
     return this.current_user;
   }
 
-  get_user_friends(user_id: number): Observable<IUser[]> {
+  get_user_friends(user_id: number) : Observable<IUser[]> {
     return this.http.get<IUser[]>(this.backend + `/get_user_friends/${user_id}`).pipe(
-      tap(
+      map(
         (res: any) => {
-          console.log(res);
-          return res;
+          return res.friends;
         }
       )
     )
   }
 
-  add_friend(user_id: number, friend_id: number) 
+  add_friend(user_id: number, friend_id: number, handler: () => void) 
   {
-    return this.http.post(this.backend + '/add_friend', {user_id: user_id, friend_id: friend_id}).pipe(
-      tap(
-        (res: any) => {
-          console.log(res.success);
+    return this.http.post(this.backend + '/add_friend', {user_id: user_id, friend_id: friend_id}).subscribe(
+      (res: any) => {
+        if(res.success){
+          this.current_user = res.new_user_data;
+          this.get_all_users();
+          handler();
         }
-      )
+        else {
+          console.log(res.reason);
+        }
+      }
     )
   }
 
-  delete_friend(user_id: number, friend_id: number)
+  delete_friend(user_id: number, friend_id: number, handler: () => void)
   {
-    return this.http.post(this.backend + '/delete_friend', {user_id: user_id, friend_id: friend_id}).pipe(
-      tap(
-        (res: any) => {
-          console.log(res.success);
+    this.http.post(this.backend + '/delete_friend', {user_id: user_id, friend_id: friend_id}).subscribe(
+      (res: any) => {
+        if(res.success){
+          this.current_user = res.new_user_data;
+          this.get_all_users();
+          handler();
         }
-      )
+        else {
+          console.log(res.reason);
+        }
+      }
     )
   }
 

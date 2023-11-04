@@ -25,21 +25,19 @@
     >Удалить аватар</button>
 
 
-    <button>
-        Новости
-    </button>
+    <button
+        (click)="this.UserService.go_to_page('news')"
+    >Новости</button>
 
-    <button>
-        Мессенджер
-    </button>
+    <button
+        type="submit"
+        (click)="this.UserService.go_to_page('messages')"
+    >Мессенджер</button>
 
-    <button>
-        Мои посты
-    </button>
-
-    <button>
-        Друзья
-    </button>
+    <button
+        type="submit"
+        (click)="this.UserService.go_to_page('friends')"
+    >Друзья</button>
 
     <button>
         Выйти

@@ -7,12 +7,20 @@ import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './router/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NewsComponent } from './pages/news/news.component';
+import { FriendsComponent } from './pages/friends/friends.component';
+import { MessagesComponent } from './pages/messages/messages.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewsComponent,
+    FriendsComponent,
+    MessagesComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
