@@ -41,7 +41,7 @@ export class NewsComponent implements OnInit {
     })
   }
 
-  add_post() {
-    console.log(this.new_post);
+  add_news() {
+    this.NewsService.add_news(this.new_post);
   }
 }
