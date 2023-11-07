@@ -22,6 +22,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.UserService.get_current_user();
+    this.NewsService.news_listener(() => this.display_component());
     this.display_component();
   }
 
@@ -42,6 +43,6 @@ export class NewsComponent implements OnInit {
   }
 
   add_news() {
-    this.NewsService.add_news(this.new_post);
+    this.NewsService.add_news(this.user.id, this.new_post);
   }
 }

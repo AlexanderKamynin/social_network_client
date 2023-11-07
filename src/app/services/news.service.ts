@@ -14,14 +14,22 @@ export class NewsService {
 
   constructor(private http: HttpClient) {
     socket = io(this.backend);
-
-    socket.on('server_msg', callback => {
-      console.log(callback);
-    })
   };
 
-  add_news(new_post: string) {
-    socket.emit('message', new_post);
+  news_listener(handler: () => void)
+  {
+    //socket.removeAllListeners('add_news_server');
+    socket.on("add_news_server", () => {
+      //console.log("я реагирую");
+      handler();
+    });
+  }
+
+  add_news(user_id: number, new_post: string) {
+    socket.emit("add_news_client", {
+      user_id: user_id,
+      new_post: new_post
+    });
   }
 
   get_user_news(user_id: number): Observable<INews[]>{
