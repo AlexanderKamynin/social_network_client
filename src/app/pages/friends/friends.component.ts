@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/interfaces/user';
+import { MessagesService } from 'src/app/services/messages.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,12 +9,13 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./friends.component.css']
 })
 export class FriendsComponent implements OnInit{
-  friend_id: number;
+  selected_friend_id: number;
   user: IUser;
   friends: IUser[];
 
   constructor(
-    public UserService: UserService
+    public UserService: UserService,
+    public MessageService: MessagesService
   ) {};
 
   ngOnInit(): void {
@@ -31,16 +33,21 @@ export class FriendsComponent implements OnInit{
   }
 
   add_friend(){
-    this.UserService.add_friend(this.user.id, this.friend_id, () => {
+    this.UserService.add_friend(this.user.id, this.selected_friend_id, () => {
       this.user = this.UserService.get_current_user();
       this.display_component();
     });
   }
 
   delete_friend(){
-    this.UserService.delete_friend(this.user.id, this.friend_id, () => {
+    this.UserService.delete_friend(this.user.id, this.selected_friend_id, () => {
       this.user = this.UserService.get_current_user();
       this.display_component();
     });
+  }
+
+  go_to_friend_chat(friend_id: number){
+    this.MessageService.set_friend_id(friend_id);
+    this.UserService.go_to_page('messages');
   }
 }

@@ -16,6 +16,7 @@
                 <p>Роль: {{friend.role}}</p>
                 <p>Статус: {{friend.status}}<p>
             </div>
+            <button (click)="go_to_friend_chat(friend.id)">Написать</button>
         </div>
     </div>
 
@@ -23,7 +24,7 @@
         type="string"
         name="friend_id"
         placeholder="Select friend id"
-        [(ngModel)]="friend_id"
+        [(ngModel)]="selected_friend_id"
     />
 
     <button (click)="add_friend()">Добавить друга</button>
