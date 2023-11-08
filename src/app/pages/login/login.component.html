@@ -1,4 +1,4 @@
-<div>Добро пожаловать</div>
+<div class="header">Добро пожаловать</div>
 
 <div>
     <input
@@ -16,9 +16,8 @@
     />
     
     <button
-        type="submit"
         (click)="login()"
-    >
-        Login
-    </button>
+    >Войти</button>
+
+    <button (click)="this.AuthService.go_to_registration()">Создать аккаунт</button>
 </div>

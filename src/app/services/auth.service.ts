@@ -38,9 +38,26 @@ export class AuthService {
     })
   }
 
+  create_account(account_info: any){
+    this.http.post(this.backend + '/create_account', {account_info: account_info}).subscribe((res: any) => {
+      this.isAuth = true;
+      sessionStorage.setItem('user', JSON.stringify(res.user));
+      this.user = res.user;
+      this.router.navigate(['profile']);
+    })
+  }
+
   logout(){
     this.isAuth = false;
     sessionStorage.removeItem('user');
+    this.router.navigate([""]);
+  }
+
+  go_to_registration(){
+    this.router.navigate(["registration"]);
+  }
+
+  go_to_login(){
     this.router.navigate([""]);
   }
 }

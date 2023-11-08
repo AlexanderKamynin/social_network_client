@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
   email = "";
   password = "";
 
-  constructor(private AuthService: AuthService) {};
+  constructor(public AuthService: AuthService) {};
 
   login() {
     //console.log("Try to login");
