@@ -27,11 +27,17 @@ export class MessagesService {
 
   messages_listener(handler: () => void)
   {
-    //
+    socket.on("add_message_server", () => {
+      handler();
+    });
   }
 
   add_message(user_id: number, message: string) {
-    //
+    socket.emit("add_message_client", {
+      user_id: user_id,
+      friend_id: this.friend_id,
+      new_message: message
+    })
   }
 
   get_user_messages(user_id: number): Observable<IDialog> {

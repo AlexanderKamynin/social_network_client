@@ -39,6 +39,6 @@ export class MessagesComponent implements OnInit{
   }
 
   add_message() {
-    console.log('тык');
+    this.MessagesService.add_message(this.user.id, this.new_message);
   }
 }
