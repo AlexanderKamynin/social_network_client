@@ -11,6 +11,7 @@ import { NewsComponent } from './pages/news/news.component';
 import { FriendsComponent } from './pages/friends/friends.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegistrationComponent } from './pages/registration/registration.compone
     NewsComponent,
     FriendsComponent,
     MessagesComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

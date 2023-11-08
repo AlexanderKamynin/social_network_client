@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   ) {};
 
   ngOnInit(): void {
-    this.user = this.UserService.get_current_user();  
+    this.user = JSON.parse(sessionStorage.getItem('user')!);
     this.image_path = this.UserService.backend + '/src/img/' + this.user.avatar;
   }
 
@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
       const img_info = {name: this.selected_img.name, type: this.selected_img.type};
       
       this.UserService.upload_avatar(this.user.id, img_info, () => {
-        this.user = this.UserService.get_current_user();
+        this.user = JSON.parse(sessionStorage.getItem('user')!);
         this.image_path = this.UserService.backend + '/src/img/' + this.user.avatar;
       });
     }
@@ -41,7 +41,7 @@ export class ProfileComponent implements OnInit {
 
   delete_avatar() {
     this.UserService.delete_avatar(this.user.id, () => {
-      this.user = this.UserService.get_current_user();
+      this.user = JSON.parse(sessionStorage.getItem('user')!);
       this.image_path = this.UserService.backend + '/src/img/' + this.user.avatar;
     });
   }

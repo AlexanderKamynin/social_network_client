@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   public user: IUser;
-  private isAuth = false;
+  public isAuth = false;
   public backend = 'https://localhost:3000';
   public users: IUser[];
 
@@ -20,12 +20,12 @@ export class AuthService {
   login(email: string, password: string){
     this.http.get(this.backend + '/get_users').subscribe((data: any) => {
       this.users = data.users_table;
-      //console.log(this.users);
       this.http.post(this.backend + '/auth', {email: email, password: password}).subscribe(
         (res: any) => {
           if(res.accepted)
           {
             this.isAuth = true;
+            sessionStorage.setItem('user', JSON.stringify(res.user));
             this.user = res.user;
             this.router.navigate(['profile']);
           }
@@ -36,5 +36,11 @@ export class AuthService {
         }
       )
     })
+  }
+
+  logout(){
+    this.isAuth = false;
+    sessionStorage.removeItem('user');
+    this.router.navigate([""]);
   }
 }

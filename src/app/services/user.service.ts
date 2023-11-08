@@ -18,6 +18,15 @@ export class UserService {
     this.current_user = this.AuthService.user;
   };
 
+  // update(){
+  //   this.get_all_users();
+  //   //if avatar has been changed and user isn't changed
+  //   if(this.AuthService.user.id == this.current_user.id){
+  //     this.AuthService.user.avatar = this.current_user.avatar;
+  //   }
+  //   this.current_user = this.AuthService.user;
+  // }
+
   go_to_page(page: string){
     this.router.navigate([page]);
   }
@@ -30,6 +39,8 @@ export class UserService {
   }
 
   get_current_user(): IUser {
+    //this.update();
+    this.current_user =  JSON.parse(sessionStorage.getItem('user')!);
     return this.current_user;
   }
 
@@ -49,6 +60,7 @@ export class UserService {
       (res: any) => {
         if(res.success){
           this.current_user = res.new_user_data;
+          sessionStorage.setItem('user', JSON.stringify(res.new_user_data));
           this.get_all_users();
           handler();
         }
@@ -65,6 +77,7 @@ export class UserService {
       (res: any) => {
         if(res.success){
           this.current_user = res.new_user_data;
+          sessionStorage.setItem('user', JSON.stringify(res.new_user_data));
           this.get_all_users();
           handler();
         }
@@ -80,6 +93,7 @@ export class UserService {
       (res: any) => {
         if (res.success){
           this.current_user = res.new_user_data;
+          sessionStorage.setItem('user', JSON.stringify(res.new_user_data));
           this.get_all_users();
           handler();
         }
@@ -95,6 +109,7 @@ export class UserService {
     this.http.post(this.backend + '/delete_avatar', {user_id: user_id}).subscribe(
       (res: any) => {
         this.current_user = res.new_user_data;
+        sessionStorage.setItem('user', JSON.stringify(res.new_user_data));
         this.get_all_users();
 
         handler();

@@ -1,4 +1,10 @@
+<app-header />
+
 <div>
+    <div class="header">
+        Профиль
+    </div>
+
     <div>
         <img [src]="image_path">
 
@@ -29,15 +35,6 @@
     >Новости</button>
 
     <button
-        type="submit"
         (click)="this.UserService.go_to_page('friends')"
     >Друзья</button>
-
-    <button>
-        Выйти
-    </button>
-
-    <button>
-        Администрирование
-    </button>
 </div>
