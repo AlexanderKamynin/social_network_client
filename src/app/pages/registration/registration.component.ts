@@ -33,7 +33,8 @@ export class RegistrationComponent implements OnInit {
         this.AuthService.create_account(account_info);
       }
     else {
-      console.log("Все поля должны быть заполнены!");
+      //console.log("Все поля должны быть заполнены!");
+      alert('Все поля должны быть заполнены');
     }
   }
 }

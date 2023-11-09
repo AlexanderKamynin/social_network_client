@@ -39,6 +39,11 @@ export class MessagesComponent implements OnInit{
   }
 
   add_message() {
+    if(this.new_message){
     this.MessagesService.add_message(this.user.id, this.new_message);
+    }
+    else {
+      alert("Сообщение не может быть пустым");
+    }
   }
 }

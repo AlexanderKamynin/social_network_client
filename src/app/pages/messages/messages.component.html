@@ -33,14 +33,16 @@
         </div>
     </div>
 
-    <input
-    type="text"
-    name="post"
-    placeholder="Your message"
-    [(ngModel)]="new_message"
-    />
+    <div class="menu">
+        <input
+        type="text"
+        name="post"
+        placeholder="Your message"
+        [(ngModel)]="new_message"
+        />
 
-    <button (click)="add_message()">Отправить</button>
+        <button (click)="add_message()">Отправить</button>
 
-    <button (click)="this.UserService.go_to_page('friends')">Вернуться назад</button>
+        <button (click)="this.UserService.go_to_page('friends')">Вернуться назад</button>
+    </div>
 </div>

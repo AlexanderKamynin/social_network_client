@@ -9,6 +9,10 @@ body {
     width: 100%;
 }
 
+header {
+    position: absolute;
+    right: 20px;
+}
 
 button {
     margin: 15px;

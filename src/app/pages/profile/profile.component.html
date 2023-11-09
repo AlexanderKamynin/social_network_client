@@ -5,36 +5,43 @@
         Профиль
     </div>
 
-    <div>
+    <div class="profile">
         <img [src]="image_path">
 
         <div>
-            <p>{{user.name}}</p>
-            <p>{{user.email}}</p>
-            <p>{{user.date}}</p>
+            <p>Имя: {{user.name}}</p>
+            <p>email: {{user.email}}</p>
+            <p>Дата рождения: {{user.date}}</p>
         </div>
     </div>
 
-    <input 
-        type="file"
-        name="avatar"
-        (change)="on_selected_file($event)"
-    />
+    <div class="menu">
+        <div>
+            <input 
+                type="file"
+                name="avatar"
+                (change)="on_selected_file($event)"
+            />
+        </div>
 
-    <button
-        (click)="upload_avatar()"
-    >Загрузить аватар</button>
+        <div>
+            <button
+                (click)="upload_avatar()"
+            >Загрузить аватар</button>
 
-    <button
-        (click)="delete_avatar()"
-    >Удалить аватар</button>
+            <button
+                (click)="delete_avatar()"
+            >Удалить аватар</button>
+        </div>
 
+        <div>
+            <button
+                (click)="this.UserService.go_to_page('news')"
+            >Новости</button>
 
-    <button
-        (click)="this.UserService.go_to_page('news')"
-    >Новости</button>
-
-    <button
-        (click)="this.UserService.go_to_page('friends')"
-    >Друзья</button>
+            <button
+                (click)="this.UserService.go_to_page('friends')"
+            >Друзья</button>
+        </div>
+    </div>
 </div>

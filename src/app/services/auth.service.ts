@@ -31,7 +31,8 @@ export class AuthService {
           }
           else
           {
-            console.log(res.reason);
+            //console.log(res.reason);
+            alert(res.reason);
           }
         }
       )

@@ -21,14 +21,18 @@ body {
     left: 20%;
 }
 
-.no_news {
+.menu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.menu_description {
     font-size: 24px;
     display: flex;
     justify-content: center;
-    width: 100%;
-    align-items: center;
 }
-
 
 .friend_news, .user_news {
     display: flex;

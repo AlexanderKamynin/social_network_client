@@ -65,7 +65,8 @@ export class UserService {
           handler();
         }
         else {
-          console.log(res.reason);
+          //console.log(res.reason);
+          alert(res.reason);
         }
       }
     )
@@ -82,7 +83,8 @@ export class UserService {
           handler();
         }
         else {
-          console.log(res.reason);
+          //console.log(res.reason);
+          alert(res.reason);
         }
       }
     )
@@ -98,7 +100,8 @@ export class UserService {
           handler();
         }
         else {
-          console.log(res.reason);
+          //console.log(res.reason);
+          alert(res.reason);
         }
       }
     )

@@ -43,6 +43,11 @@ export class NewsComponent implements OnInit {
   }
 
   add_news() {
+    if(this.new_post){
     this.NewsService.add_news(this.user.id, this.new_post);
+    }
+    else {
+      alert('Новость не может быть пустой');
+    }
   }
 }

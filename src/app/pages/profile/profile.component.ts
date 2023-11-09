@@ -35,7 +35,8 @@ export class ProfileComponent implements OnInit {
       });
     }
     else {
-      console.log("Файл не выбран!");
+      //console.log("Файл не выбран!");
+      alert("Файл не выбран");
     }
   }
 
